@@ -1,0 +1,23 @@
+<!--
+ * @Author: DWP
+ * @Date: 2021-05-13 20:27:59
+ * @LastEditors: DWP
+ * @LastEditTime: 2021-05-13 20:30:29
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  child: <span id="test"></span>
+</body>
+<script>
+  window.addEventListener('message', ({data}) => {
+    document.getElementById('test').innerText = data;
+  })
+</script>
+</html>

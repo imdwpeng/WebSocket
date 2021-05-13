@@ -1,0 +1,49 @@
+<!--
+ * @Author: DWP
+ * @Date: 2021-05-11 21:52:57
+ * @LastEditors: DWP
+ * @LastEditTime: 2021-05-13 20:29:38
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <iframe id="frame" src="/child" frameborder="0"></iframe>
+  <div id="test"></div>
+</body>
+<script type="module">
+  import Websocket from './webSocket.js';
+
+  const ws1 = new Websocket({
+    url: 'localhost:8080',
+    pingMsg: 'ping1',
+    onmessage: (data) => { 
+      document.getElementById('test').innerText = data; 
+    }
+  });
+  const ws2 = new Websocket({
+    url: 'localhost:8080',
+    pingMsg: 'ping2',
+    onmessage: (data) => { 
+      document.getElementById('frame').contentWindow.postMessage(data); 
+    }
+  });
+
+  const ws3 = new Websocket({
+    url: 'localhost:80'
+  });
+
+  ws1.init();
+  ws2.init();
+  ws3.init();
+
+  setTimeout(() => {
+    ws1.close();
+  }, 10000);
+</script>
+</html>
