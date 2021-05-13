@@ -1,12 +1,5 @@
-<!--
- * @Author: DWP
- * @Date: 2021-05-13 20:08:07
- * @LastEditors: DWP
- * @LastEditTime: 2021-05-13 20:23:10
--->
-# 封装 WebSocket
 
----
+# 封装 WebSocket
 
 ## 功能
 
